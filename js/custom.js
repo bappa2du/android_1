@@ -55,4 +55,11 @@ $('body').on('click','.list-group-item',function(){
 		
 	});
 	
-})
+});
+
+$(function(){
+	$.get('https://restcountries.eu/rest/v1/name/bangladesh').fail(function(){
+		//alert('failed');
+		$('.alert').css('display','block');
+	});
+});
