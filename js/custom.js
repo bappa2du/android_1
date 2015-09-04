@@ -23,10 +23,7 @@ $('#country').on('keyup',function(){
 		countryList.fail(function(){
 			$('.search_result').html('<h2 class="text-center text-danger"><i class="fa fa-times"></i> Wrong keywords</h2>');
 		});
-	}else{
-		$('.search_result').html('<h2 class="text-center"><i class="fa fa-pencil"></i> Enter your keywords</h2>');
-	}
-	if(country.length < 3){
+	}else if(country.length < 3){
 		$('.search_result').html('');
 	}
 });
