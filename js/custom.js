@@ -54,12 +54,17 @@ $('body').on('click','.list-group-item',function(){
 		$('.modal-body').html(div);
 		
 	});
-	
+
 });
 
 $(function(){
-	$.get('https://restcountries.eu/rest/v1/name/bangladesh').fail(function(){
-		//alert('failed');
-		$('.alert').css('display','block');
-	});
+	var status = setInterval(function(){
+		var data = $.get('https://restcountries.eu/rest/v1/name/bangladesh').fail(function(){
+			$('.alert').css('display','block');
+		});
+		data.done(function(){
+			$('.alert').css('display','none');
+			clearInterval(status);
+		});
+	},2000);
 });
